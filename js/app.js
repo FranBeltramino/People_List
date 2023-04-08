@@ -24,7 +24,7 @@ function mostrarPersonas(){
     let texto = '';
     for(let persona of personas){
         console.log(persona);
-        texto += `<li> ${persona.name} ${persona.lastname} </li>`;
+        texto += `<li> ${persona.gname} ${persona.glastname} </li>`;
 
 } 
 
@@ -32,3 +32,12 @@ document.getElementById('personaW').innerHTML = texto;
     
 }
 
+function agregarPersona(){
+    const forma = document.forms['forma'];
+    const nombre = forma['nombre'];
+    const apellido = forma['apellido'];
+    const persona = new Persona(nombre.value, apellido.value);
+    console.log(persona);
+    personas.push(persona);
+    mostrarPersonas();
+}
